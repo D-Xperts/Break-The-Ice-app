@@ -68,16 +68,17 @@
         <div class="row">
 
             <div class="col-md-3">
-                <p class="lead">{{event.title}}</p>
-                <img class ="event-pic"src='{{event.img}}'></img>
+                <p class="lead event-pic">{{event.title}} {{event.owners[0]}}</p>
+                <img class ="event-pic" src='{{event.img}}'></img>
                 <ul>
                     <li ng-repeat='user in event.users_att'>{{user}}</li>
                 </ul>
              </div>
+
         </div>
 
             <div class="col-md-9">
-
+                adsfjdjlk
 
                 <div class="row">
 
@@ -116,6 +117,8 @@
     <script src="app/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- angular -->
     <script type="text/javascript" src="app/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="app/bower_components/angular-moment/angular-moment.min.js"></script>
+
     <script type="text/javascript" src="app/app.js"></script>
     <script type="text/javascript" src="app/controllers/Event.Ctrl.js"></script>
 
