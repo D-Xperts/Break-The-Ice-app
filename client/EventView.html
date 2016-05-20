@@ -74,11 +74,16 @@
                     <li ng-repeat='user in event.users_att'>{{user}}</li>
                 </ul>
              </div>
-
+            <!-- enter here for the right side of the page -->
+            <div>
+                <p>{{event.description}}</p>
+                <p>{{event.displayTime}}</p>
+                <p>{{event.timeFromNow}}</p>
+            </div>
         </div>
 
             <div class="col-md-9">
-                adsfjdjlk
+
 
                 <div class="row">
 
@@ -115,6 +120,7 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="app/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="app/bower_components/moment/moment.js"></script>
     <!-- angular -->
     <script type="text/javascript" src="app/bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="app/bower_components/angular-moment/angular-moment.min.js"></script>

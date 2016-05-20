@@ -1,7 +1,7 @@
 angular.module('break')
 
 
-.controller('EventCtrl',function($scope){
+.controller('EventCtrl',function($scope,moment){
 
 	$scope.event = {
 
@@ -23,6 +23,9 @@ angular.module('break')
   				Date : 01/01/16}
   			]
 		}
-	}
+	};
+$scope.event.timeFromNow = moment($scope.event.start_time).fromNow();
+$scope.event.startInHour = parseInt(moment($scope.event.start_time).diff(Date.now(),'hours'));
+$scope.event.displayTime = moment($scope.event.start_time).format('MMMM Do YYYY, h:mm:ss a')
 })
 
