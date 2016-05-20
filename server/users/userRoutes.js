@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
+var User = require('./userController');
+var jwt = require('express-jwt');
 
-var mongoose = require('mongoose');
-var Event = mongoose.model('events');
-var User = mongoose.model('users');
+var auth = jwt({secret: 'SECRET', userProperty: 'payload'});
+
 
 router.post('/register', User.createUser);
 
@@ -11,8 +12,8 @@ router.post('/login', User.authenticateUser);
 
 router.param('user', User.getUser);
 
-router.delete('/users/:user', User.deleteUser)
+router.delete('/users/:user', auth, User.deleteUser)
 
-router.post('/users/:user/events', User.joinEvent)
+router.post('/users/:user/events', auth, User.joinEvent)
 
 module.exports = router;
