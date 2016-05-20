@@ -1,23 +1,23 @@
 var User = require("./userModel")
 
 module.exports = {
-	createUser: function() {
+	createUser: function(req, res, next) {
 
 	},
 
-	getUser: function() {
+	getUser: function(req, res, next, id) {
 
 	},
 
-	deleteUser: function() {
+	deleteUser: function(req, res) {
 
 	},
 
-	checkAuth: function() {
+	authenticateUser: function(req, res next) {
 
 	},
 
-	joinEvent: function() {
+	joinEvent: function(req, res, next, id) {
 
 	}
 };
