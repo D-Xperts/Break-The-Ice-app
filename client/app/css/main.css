@@ -10,4 +10,6 @@
 
 .user-answer {
 	float:right;
+	max-height: 100%;
+	max-width: 100%;
 }
