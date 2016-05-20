@@ -37,8 +37,21 @@ module.exports = {
     });
   },
 
-  editEvent: function() {
-
+  editEvent: function(event) {
+    Event.findByIdAndUpdate(event.id, {
+      event_name : event.name;
+      location   : event.location;
+      start_time : event.startTime;
+      end_time   : event.endTime;
+      pic_url    : event.picUrl;
+      categories : event.categories;
+      users_att  : event.usersAtt;
+      owners     : event.owners;
+      description: event.description;
+    }, 
+    function (err, event) {
+      //if event does not exist
+      if(err) { throw err }
+    })
   }
-
 };
