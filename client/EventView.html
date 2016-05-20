@@ -80,6 +80,12 @@
                 <p>{{event.displayTime}}</p>
                 <p>{{event.timeFromNow}}</p>
             </div>
+            <div>
+                <h3>Messages YAY!</h3>
+                <div ng-repeat='message in event.messages.messages'>
+                    <h6>{{message.user_id}} on {{message.time | amDateFormat: 'MM.DD.YYYY HH:mm'}} said:</h6><p>"{{message.msg}}"</p>
+                </div>
+            </div>
         </div>
 
             <div class="col-md-9">

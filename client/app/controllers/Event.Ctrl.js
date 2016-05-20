@@ -18,10 +18,18 @@ angular.module('break')
     		event_id :   1,
     		 messages : [
  				{user_id :  1,
-  				msg :  "",
-  				time : "" , 
-  				Date : 01/01/16}
-  			]
+  				msg :  "Hello World",
+  				time : new Date("2016 05 02 13:00:00")
+        },
+        {user_id :  2,
+          msg :  "Hello Planet",
+          time : new Date("2016 04 02 13:00:00")
+        },
+        {user_id :  3,
+          msg :  "Hello floating rock",
+          time : new Date("2016 03 02 13:00:00")
+        }
+        ]
 		}
 	};
 $scope.event.timeFromNow = moment($scope.event.start_time).fromNow();
