@@ -1,8 +1,11 @@
 angular.module('break')
 
 
-.controller('EventCtrl',function($scope){
-
+.controller('EventCtrl',function($scope,moment){
+//will make 2 api calls (Events and Events Message Board)
+// and will merge the two pieces of data
+//the following is a mock up for the merged data
+//that will be used and populated by the controller
 	$scope.event = {
 
 		title : "X-games Austin",
@@ -18,11 +21,22 @@ angular.module('break')
     		event_id :   1,
     		 messages : [
  				{user_id :  1,
-  				msg :  "",
-  				time : "" , 
-  				Date : 01/01/16}
-  			]
+  				msg :  "Hello World",
+  				time : new Date("2016 05 02 13:00:00")
+        },
+        {user_id :  2,
+          msg :  "Hello Planet",
+          time : new Date("2016 04 02 13:00:00")
+        },
+        {user_id :  3,
+          msg :  "Hello floating rock",
+          time : new Date("2016 03 02 13:00:00")
+        }
+        ]
 		}
-	}
+	};
+$scope.event.timeFromNow = moment($scope.event.start_time).fromNow();
+$scope.event.startInHour = parseInt(moment($scope.event.start_time).diff(Date.now(),'hours'));
+$scope.event.displayTime = moment($scope.event.start_time).format('MMMM Do YYYY, h:mm:ss a')
 })
 
