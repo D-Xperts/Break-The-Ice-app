@@ -5,14 +5,14 @@ var mongoose = require('mongoose');
 var Event = mongoose.model('events');
 var User = mongoose.model('users');
 
-router.post('/register', createUser);
+router.post('/register', User.createUser);
 
-router.post('/login', authenticateUser);
+router.post('/login', User.authenticateUser);
 
-router.param('user', getUser);
+router.param('user', User.getUser);
 
-router.delete('/users/:user', deleteUser)
+router.delete('/users/:user', User.deleteUser)
 
-router.post('/users/:user/events', joinEvent)
+router.post('/users/:user/events', User.joinEvent)
 
 module.exports = router;
