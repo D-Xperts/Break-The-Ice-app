@@ -2,7 +2,10 @@ angular.module('break')
 
 
 .controller('EventCtrl',function($scope,moment){
-
+//will make 2 api calls (Events and Events Message Board)
+// and will merge the two pieces of data
+//the following is a mock up for the merged data
+//that will be used and populated by the controller
 	$scope.event = {
 
 		title : "X-games Austin",
