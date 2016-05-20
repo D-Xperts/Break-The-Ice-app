@@ -69,33 +69,32 @@
             </div>
             <div class="col-md-9" >
                 <div class="container">
-                    <form>
+                    <form ng-submit="addEvent()">
                         Enter Event Name:
-                        <input type="text" name="event_name" placeholder="event name">
+                        <input type="text" name="event_name" placeholder="event name" ng-model="event_name">
                         <br>
                         Where is it located?
-                        <input type="text" name="location" placeholder="location">
+                        <input type="text" name="location" placeholder="location" ng-model="location">
                         <br>
                         Pic!:
-                        <input type="url" name="pic_url" placeholder="url please">
+                        <input type="url" name="pic_url" placeholder="url please" ng-model="pic_url">
                         <br>
                         Write something about this event!
                         <br>
-                        <textarea type="text" name="location" placeholder="location"> </textarea>
+                        <textarea type="text" name="description" placeholder="description of the event" ng-model="description"> </textarea>
                         <br>
-                        What day is the event?
-                        <input type="date" name="start_date" placeholder="start date">
+                        When does it start?
+                        <input type="datetime-local" name="start_time" placeholder="start time" ng-model="start_time">
                         <br>
-                        What time is it starting?
-                        <input type="time" name="start_time" placeholder="start time">
+
+                        When does it end?
+                        <input type="datetime-local" name="end_time" placeholder="end time" ng-model="end_time">
                         <br>
-                        What time is it ending?
-                        <input type="time" name="end_time" placeholder="end time">
-                        <br>
+
                         Tag this event
-                        <input type="checkbox" name="categories" value="Foods"> Foods
-                        <input type="checkbox" name="categories" value="Outdoors"> Outdoors
-                        <input type="checkbox" name="categories" value="Arts"> Arts
+                        <input type="checkbox" name="categories" value="Foods" ng-model='eventCategoriesObj.Foods'> Foods
+                        <input type="checkbox" name="categories" value="Outdoors" ng-model='eventCategoriesObj.Outdoors'> Outdoors
+                        <input type="checkbox" name="categories" value="Arts" ng-model='eventCategoriesObj.Arts'> Arts
                         <br>
                         <input type="submit">
                     </form>
