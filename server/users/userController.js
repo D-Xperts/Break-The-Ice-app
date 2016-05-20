@@ -57,7 +57,8 @@ module.exports = {
 		  })(req, res, next);
 	},
 
-	joinEvent: function(req, res, next, id) {
-		var queryUser = User.findById(id)
-	}
+	// joinEvent: function(req, res, next, id) {
+	// 	var queryUser = User.findById(id);
+	// 	var queryEvent = Event.findById(id);
+	// }
 };
