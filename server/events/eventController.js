@@ -29,9 +29,9 @@ module.exports = {
 
   //Unsure if syntax is correct, need to confirm
   deleteEvent: function(event_id) {
-    Event.find({ _id: event_id}).remove(function(err) {
+    Event.findByIdAndRemove(event_id, function(err) {
       if(err) {
-        return err;
+        return throw err;
       }
       return null;
     });
