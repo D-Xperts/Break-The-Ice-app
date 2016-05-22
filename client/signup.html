@@ -68,42 +68,42 @@
                     <form role="form" ng-submit="signup()">
                         <div class="form-group">
                             <label for="alias">Alias: (this will be used for your login) </label>
-                            <input type="text" class="form-control" id="alias">
+                            <input type="text" class="form-control" id="alias" ng-model="alias">
                         </div>
                         <div class="form-group">
                             <label for="pwd">Password:</label>
-                            <input type="password" class="form-control" id="pwd">
+                            <input type="password" class="form-control" id="pwd" ng-model="password">
                         </div>
                         <div class="form-group">
                             <label for="email">Email address:</label>
-                            <input type="email" class="form-control" id="email">
+                            <input type="email" class="form-control" id="email" ng-model="email">
                         </div>
                         <div class="form-group">
                             <label for="first_name">Frist Name:</label>
-                            <input type="text" class="form-control" id="first_name">
+                            <input type="text" class="form-control" id="first_name" ng-model="first_name">
                         </div>
                         <div class="form-group">
                             <label for="last_name">Last Name:</label>
-                            <input type="text" class="form-control" id="last_name">
+                            <input type="text" class="form-control" id="last_name" ng-model="last_name">
                         </div>
                         <div class="form-group">
                             <label for="hometown">Hometown:</label>
-                            <input type="text" class="form-control" id="hometown">
+                            <input type="text" class="form-control" id="hometown" ng-model="hometown">
                         </div>
                         <div class="form-group">
                             <label for="pic_url">Your pic:</label>
-                            <input type="url" class="form-control" id="pic_url">
+                            <input type="url" class="form-control" id="pic_url" ng-model="pic_url">
                         </div>
                         <div>
                             <p>What kinds of event are you interesed in?</p>
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="inlineCheckbox1" value="option1"> Food
+                                <input type="checkbox" id="inlineCheckbox1" value="Food" ng-model="interests.Food"> Food
                             </label>
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="inlineCheckbox2" value="option2"> Outdoors
+                                <input type="checkbox" id="inlineCheckbox2" value="Outdoors" ng-model="interests.Outdoors"> Outdoors
                             </label>
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="inlineCheckbox3" value="option3"> Music
+                                <input type="checkbox" id="inlineCheckbox3" value="Music" ng-model="interests.Music"> Music
                             </label>
                         </div>
 
