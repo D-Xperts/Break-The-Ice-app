@@ -64,15 +64,17 @@
     <div class="container-fluid" ng-controller="signin" >
         <div class="row">
             <div class="col-md-12" >
-                <div class="container">
-                    <form name="signinForm" ng-submit="signin()" style="text-align:center;position:relative;top:70px;">
-                        Username:
-                        <input type="text" name="username" placeholder="username" ng-model="username" required />
-                        <br>
-                        Password:
-                        <input type="password" name="passwoard" placeholder="" ng-model="password" required />
-                        <br>
-                        <input type="submit" value="Login">
+                <div class="container">g
+                    <form role="form" ng-submit="signin()" style="position:relative;top:70px;">
+                      <div class="form-group">
+                        <label for="alias">alias:</label>
+                        <input type="text" class="form-control" id="alias">
+                      </div>
+                      <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" id="password">
+                      </div>
+                      <button type="submit" class="btn btn-default">Submit</button>
                     </form>
                 </div>
             </div>
