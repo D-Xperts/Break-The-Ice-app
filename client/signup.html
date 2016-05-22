@@ -66,14 +66,48 @@
             <div class="col-md-12" >
                 <div class="container">
                     <form role="form" ng-submit="signup()">
-                      <div class="form-group">
-                        <label for="email">Email address:</label>
-                        <input type="email" class="form-control" id="email">
-                      </div>
-                      <div class="form-group">
-                        <label for="pwd">Password:</label>
-                        <input type="password" class="form-control" id="pwd">
-                      </div>
+                        <div class="form-group">
+                            <label for="alias">Alias: (this will be used for your login) </label>
+                            <input type="text" class="form-control" id="alias">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Password:</label>
+                            <input type="password" class="form-control" id="pwd">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email address:</label>
+                            <input type="email" class="form-control" id="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="first_name">Frist Name:</label>
+                            <input type="text" class="form-control" id="first_name">
+                        </div>
+                        <div class="form-group">
+                            <label for="last_name">Last Name:</label>
+                            <input type="text" class="form-control" id="last_name">
+                        </div>
+                        <div class="form-group">
+                            <label for="hometown">Hometown:</label>
+                            <input type="text" class="form-control" id="hometown">
+                        </div>
+                        <div class="form-group">
+                            <label for="pic_url">Your pic:</label>
+                            <input type="url" class="form-control" id="pic_url">
+                        </div>
+                        <div>
+                            <p>What kinds of event are you interesed in?</p>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="inlineCheckbox1" value="option1"> Food
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="inlineCheckbox2" value="option2"> Outdoors
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="inlineCheckbox3" value="option3"> Music
+                            </label>
+                        </div>
+
+
                       <button type="submit" class="btn btn-default">Submit</button>
                     </form>
                 </div>
@@ -112,7 +146,7 @@
     <script type="text/javascript" src="app/bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="app/bower_components/angular-moment/angular-moment.min.js"></script>
     <script type="text/javascript" src="app/app.js"></script>
-    <script type="text/javascript" src="app/controllers/Signin.Ctrl.js"></script>
+    <script type="text/javascript" src="app/controllers/Signup.Ctrl.js"></script>
 
 </body>
 
