@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='break'>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Shop Homepage - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="app/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="app/css/main.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Start Bootstrap</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Services</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container-fluid" style="position:relative; top:52px;" ng-controller="addEvent">
+        <div class="row">
+
+            <div class="col-md-3">
+               <img class='event-pic' src="{{pic_url}}">
+            </div>
+            <div class="col-md-9" >
+                <div class="container">
+                    <form name="addEventForm" ng-submit="addEvent()">
+                        Enter Event Name:
+                        <input type="text" name="event_name" placeholder="event name" ng-model="event_name" required />
+                        <br>
+                        Where is it located?
+                        <input type="text" name="location" placeholder="location" ng-model="location" required />
+                        <br>
+                        Pic!:
+                        <input type="url" name="pic_url" placeholder="url please" ng-model="pic_url" required />
+                        <br>
+                        Write something about this event!
+                        <br>
+                        <textarea type="text" name="description" placeholder="description of the event" ng-model="description" required> </textarea>
+                        <br>
+                        When does it start?
+                        <input type="datetime-local" name="start_time" placeholder="start time" ng-model="start_time" min="{{minDatetimeLocal | date:'yyyy-MM-ddTHH:mm'}}" required/ >
+                        <br>
+
+                        When does it end?
+                        <input type="datetime-local" name="end_time" placeholder="end time" ng-model="end_time" required/>
+                        <br>
+
+                        Tag this event
+                        <input type="checkbox" name="categories" value="Foods" ng-model='eventCategoriesObj.Foods'> Foods
+                        <input type="checkbox" name="categories" value="Outdoors" ng-model='eventCategoriesObj.Outdoors'> Outdoors
+                        <input type="checkbox" name="categories" value="Arts" ng-model='eventCategoriesObj.Arts'> Arts
+                        <br>
+                        <input type="submit">
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+
+    <!-- /.container -->
+
+    <div class="container row" style="position:relative; top:152px;">
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="app/bower_components/jquery/dist/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="app/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- moment -->
+    <script src="app/bower_components/moment/moment.js"></script>
+    <!-- angular -->
+    <script type="text/javascript" src="app/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="app/bower_components/angular-moment/angular-moment.min.js"></script>
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/controllers/addEvent.Ctrl.js"></script>
+
+</body>
+
+</html>
