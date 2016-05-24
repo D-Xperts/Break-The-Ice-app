@@ -25,4 +25,5 @@ angular.module('break',['angularMoment', 'ngRoute'])
       templateUrl: 'app/Views/UserView.html',
       controller: 'UserCtrl'
     })
+    .otherwise({redirectTo:'/'})
 })
