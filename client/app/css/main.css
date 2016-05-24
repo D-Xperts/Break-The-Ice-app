@@ -25,3 +25,7 @@
 body > .container {
   padding: 60px 15px 0;
 }
+
+body > .container:last-child {
+  padding: 60px 60px 0;
+}
