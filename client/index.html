@@ -61,94 +61,8 @@
     </nav>
 
     <!-- Page Content -->
-    <div class="container-fluid" ng-controller="landing">
-        <div class="row">
+    <div ng-view ></div>
 
-            <div class="col-md-3">
-                <p class="lead">Shop Name</p>
-                <div class="list-group">
-                    <a href="#" class="list-group-item" ng-repeat="category in categories">{{category}}</a>
-                </div>
-            </div>
-            <div class="col-md-9">
-
-                <div class="row carousel-holder">
-
-<!--                     <div class="col-md-12 slider"> -->
-                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                            <!-- the three dots of the bottom of the carousel -->
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <!-- each div is for each pic in the carousel -->
-                                <div class="item active">
-                                    <img class="slide-image" src="{{featured[0].img}}" alt="">
-                                </div>
-
-                                <div class="item" ng-repeat="featuredEvent in featured.slice(1)">
-                                    <img class="slide-image" src="{{featuredEvent.img}}" alt="">
-                                </div>
-                            </div>
-                        
-                            <!-- left arrow in the carousel -->
-                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                            </a>
-                            <!-- left arrow in the carousel -->
-                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                            </a>
-                       <!--  </div> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br />
-        <div class="row">
-            <div class="col-md-4" ng-repeat="event in events">
-                <div class="thumbnail">
-                    <img src="{{event.img}}" alt="">
-                    <div class="caption">
-                        <h4 class="pull-right">{{event.users_att.length}} going</h4>
-                        <h4><a href="#">{{event.event_name}}</a>
-                        </h4>
-                        <p>{{event.description}}</p>
-                        <p>{{event.timeFromNow}}</p>
-                        <!-- this display in how many hours the event will take place<p>{{event.startInHour}}</p> -->
-                    </div>
-                    <div class="ratings">
-                        <!-- maybe display the category here -->
-                        <p class="pull-right" ><span ng-repeat="catergory in event.categories">{{catergory}} |</span></p>
-                        <!-- here is the star rating. maybe display how many ppl are going -->
-                      <!--   <p ng-repeat="range(event.categories.lenght)"> -->
-                            <span ng-repeat="i in event.users_att"class="glyphicon glyphicon-user"></span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- </div> -->
-        </div>
-
-                    <!-- keep this here  a tile with no boarder, a button etc. can be used to do About us/learn more section-->
-<!--                     <div class="col-sm-4 col-lg-4 col-md-4">
-                        <h4><a href="#">Like this template?</a>
-                        </h4>
-                        <p>If you like this template, then check out <a target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this tutorial</a> on how to build a working review system for your online store!</p>
-                        <a class="btn btn-primary" target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">View Tutorial</a>
-                    </div> -->
-
-                </div>
-
-            </div>
-        </div>
-
-        </div>
-
-    </div>
-    <!-- /.container -->
 
     <div class="container">
 
@@ -177,6 +91,7 @@
     <!-- angular -->
     <script type="text/javascript" src="app/bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="app/bower_components/angular-moment/angular-moment.min.js"></script>
+    <script type="text/javascript" src="app/bower_components/angular-route/angular-route.min.js"></script>
     <script type="text/javascript" src="app/app.js"></script>
     <script type="text/javascript" src="app/controllers/landing.Ctrl.js"></script>
 
