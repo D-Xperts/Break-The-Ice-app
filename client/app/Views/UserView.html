@@ -1,59 +1,59 @@
-    <!-- Page Content -->
-    <div class="container" ng-controller="UserCtrl">
-        <p class ="lead">.</p>
-        <p class ="lead">.</p>
-        <div class='row'></div> 
-        <div>
+<!-- Page Content -->
+<div class="container" ng-controller="UserCtrl">
+    <p class ="lead">.</p>
+    <p class ="lead">.</p>
+    <div class='row'></div> 
+    <div>
 
-            <div class="col-md-3">
-                <p class="lead event-pic">{{user.alias}}</p>
-                <img class="event-pic" src='{{user.pic_url}}'></img>
-                <div class='row'>
-                    <p class='user-catagory'>Hometown:</p> 
-                    <p class='user-answer'> {{user.hometown}}</p>
-                </div>
-                <div class='row'>
-                    <p class='user-catagory'>Email:</p>
-                    <p class='user-answer'>{{user.email}}</p>
-                </div>
-                <div class='row'>
-                    <p class='user-catagory'>Given Name: </p> 
-                    <p class='user-answer'> {{user.first_name + " " + user.last_name}}</p>
-                </div>
-                <div class='row'>
-                    <p class='user-catagory'>My interests </p> 
-                    <p ng-repeat="interests in user.interests" class='user-answer'>{{user.interests[0]}}</p>
-                </div>
-             </div>
-            <!-- enter here for the right side of the page -->
-            
+        <div class="col-md-3">
+            <p class="lead event-pic">{{user.alias}}</p>
+            <img class="event-pic" src='{{user.pic_url}}'></img>
+            <div class='row'>
+                <p class='user-catagory'>Hometown:</p> 
+                <p class='user-answer'> {{user.hometown}}</p>
+            </div>
+            <div class='row'>
+                <p class='user-catagory'>Email:</p>
+                <p class='user-answer'>{{user.email}}</p>
+            </div>
+            <div class='row'>
+                <p class='user-catagory'>Given Name: </p> 
+                <p class='user-answer'> {{user.first_name + " " + user.last_name}}</p>
+            </div>
+            <div class='row'>
+                <p class='user-catagory'>My interests </p> 
+                <p ng-repeat="interests in user.interests" class='user-answer'>{{user.interests[0]}}</p>
+            </div>
+         </div>
+        <!-- enter here for the right side of the page -->
+        
 <!--             <div>
-                <li ng-repeat = ""></li>  Need to pull events with interest that is not yet going
-            </div> -->
-
-        </div>
-        <div class="col-md-9">
-
-
-            <div class="row">
-                <div>
-            <!--  <li ng-repeat= '' </li> Need to pull events user is going to -->
-                <!-- <p>{{event.description}}</p>
-                <p>{{event.displayTime}}</p>
-                <p>{{event.timeFromNow}}</p> -->
-                </div>
-                <div>
-                    <h3>Upcoming events</h3>
-                    <!--  <div ng-repeat='message in event.messages.messages'>
-                <h6>{{message.user_id}} on {{message.time | amDateFormat: 'MM.DD.YYYY HH:mm'}} said:</h6><p>"{{message.msg}}"</p> -->
-                </div>
-
-
-
-            </div>
-
-            </div>
+            <li ng-repeat = ""></li>  Need to pull events with interest that is not yet going
+        </div> -->
 
     </div>
+    <div class="col-md-9">
+
+
+        <div class="row">
+            <div>
+        <!--  <li ng-repeat= '' </li> Need to pull events user is going to -->
+            <!-- <p>{{event.description}}</p>
+            <p>{{event.displayTime}}</p>
+            <p>{{event.timeFromNow}}</p> -->
+            </div>
+            <div>
+                <h3>Upcoming events</h3>
+                <!--  <div ng-repeat='message in event.messages.messages'>
+            <h6>{{message.user_id}} on {{message.time | amDateFormat: 'MM.DD.YYYY HH:mm'}} said:</h6><p>"{{message.msg}}"</p> -->
+            </div>
+
+
+
+        </div>
+
+        </div>
+
+</div>
 
 
