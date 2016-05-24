@@ -1,5 +1,5 @@
 angular.module('break')
-.controller('signin', function($scope,$http){
+.controller('signinCtrl', function($scope,$http){
 	$scope.signin = function(){
 		console.log($scope.alias, $scope.password);
 		// $http({

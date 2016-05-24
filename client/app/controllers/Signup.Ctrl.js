@@ -1,5 +1,5 @@
 angular.module('break')
-.controller('signup', function($scope,$http){
+.controller('signupCtrl', function($scope,$http){
 	$scope.interests ={
 		Food:false,
 		Outdoors:false,

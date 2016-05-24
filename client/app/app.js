@@ -3,15 +3,15 @@ angular.module('break',['angularMoment', 'ngRoute'])
   $routeProvider
     .when('/', {
       templateUrl: 'app/Views/landing.html',
-      controller: 'landing'
+      controller: 'landingCtrl'
     })
     .when('/signin', {
       templateUrl: 'app/Views/signin.html',
-      controller: 'signin'
+      controller: 'signinCtrl'
     })
     .when('/signup', {
       templateUrl: 'app/Views/signup.html',
-      controller: 'signup'
+      controller: 'signupCtrl'
     })
     .when('/event', {
       templateUrl: 'app/Views/EventView.html',
@@ -19,7 +19,7 @@ angular.module('break',['angularMoment', 'ngRoute'])
     })
     .when('/addEvent', {
       templateUrl: 'app/Views/addEvent.html',
-      controller: 'addEvent'
+      controller: 'addEventCtrl'
     })
     .when('/user', {
       templateUrl: 'app/Views/UserView.html',

@@ -1,5 +1,5 @@
 angular.module('break') 
-.controller('landing', function($scope,moment){
+.controller('landingCtrl', function($scope,moment){
     $scope.featured = [];
     $scope.title = "Break the ice";
     $scope.text = "landing controller for angular";

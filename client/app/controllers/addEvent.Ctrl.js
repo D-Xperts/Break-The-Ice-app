@@ -1,5 +1,5 @@
 angular.module('break')
-.controller('addEvent', function($scope,moment){
+.controller('addEventCtrl', function($scope,moment){
 	$scope.newEvent = {};
 	$scope.eventCategoriesObj = {
 		Foods:false,
