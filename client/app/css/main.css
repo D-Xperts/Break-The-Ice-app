@@ -1,0 +1,15 @@
+.event-pic {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+
+.user-catagory {
+	float: left;
+}
+
+.user-answer {
+	float:right;
+	max-height: 100%;
+	max-width: 100%;
+}
