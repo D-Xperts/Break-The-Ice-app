@@ -1,0 +1,44 @@
+<!-- Page Content -->
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-md-3">
+           <img class='event-pic' src="{{pic_url}}">
+        </div>
+        <div class="col-md-9" >
+            <div class="container">
+                <form name="addEventForm" ng-submit="addEvent()">
+                    Enter Event Name:
+                    <input type="text" name="event_name" placeholder="event name" ng-model="event_name" required />
+                    <br>
+                    Where is it located?
+                    <input type="text" name="location" placeholder="location" ng-model="location" required />
+                    <br>
+                    Pic!:
+                    <input type="url" name="pic_url" placeholder="url please" ng-model="pic_url" required />
+                    <br>
+                    Write something about this event!
+                    <br>
+                    <textarea type="text" name="description" placeholder="description of the event" ng-model="description" required> </textarea>
+                    <br>
+                    When does it start?
+                    <input type="datetime-local" name="start_time" placeholder="start time" ng-model="start_time" min="{{minDatetimeLocal | date:'yyyy-MM-ddTHH:mm'}}" required/ >
+                    <br>
+
+                    When does it end?
+                    <input type="datetime-local" name="end_time" placeholder="end time" ng-model="end_time" required/>
+                    <br>
+
+                    Tag this event
+                    <input type="checkbox" name="categories" value="Foods" ng-model='eventCategoriesObj.Foods'> Foods
+                    <input type="checkbox" name="categories" value="Outdoors" ng-model='eventCategoriesObj.Outdoors'> Outdoors
+                    <input type="checkbox" name="categories" value="Arts" ng-model='eventCategoriesObj.Arts'> Arts
+                    <br>
+                    <input type="submit">
+                </form>
+            </div>
+            
+        </div>
+    </div>
+
+</div>

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Shop Homepage - Start Bootstrap Template</title>
+    <title>Gamify Meeting New Friends- Break the Ice</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="app/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -45,13 +45,26 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">About</a>
+                        <a href="#/">Events</a>
                     </li>
                     <li>
-                        <a href="#">Services</a>
+                        <a href="#/addEvent">Add Event</a>
                     </li>
+                    <!-- Only show when signed in  -->
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="#/user">Profile</a>
+                    </li>
+                    <!-- Only show when not signed in  -->
+                    <li>
+                        <a href="#/signin">Signin</a>
+                    </li>
+                    <!-- Only show when not signed in  -->
+                    <li>
+                        <a href="#/signup">Signup</a>
+                    </li>
+                    <!-- Only show when signed in  -->
+                    <li>
+                        <a href="#/logout">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -61,109 +74,23 @@
     </nav>
 
     <!-- Page Content -->
-    <div class="container-fluid" ng-controller="landing">
-        <div class="row">
+    <div class="container" ng-view></div>
+    <div class="container"></div>
 
-            <div class="col-md-3">
-                <p class="lead">Shop Name</p>
-                <div class="list-group">
-                    <a href="#" class="list-group-item" ng-repeat="category in categories">{{category}}</a>
-                </div>
-            </div>
-            <div class="col-md-9">
 
-                <div class="row carousel-holder">
 
-<!--                     <div class="col-md-12 slider"> -->
-                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                            <!-- the three dots of the bottom of the carousel -->
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <!-- each div is for each pic in the carousel -->
-                                <div class="item active">
-                                    <img class="slide-image" src="{{featured[0].img}}" alt="">
-                                </div>
-
-                                <div class="item" ng-repeat="featuredEvent in featured.slice(1)">
-                                    <img class="slide-image" src="{{featuredEvent.img}}" alt="">
-                                </div>
-                            </div>
-                        
-                            <!-- left arrow in the carousel -->
-                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                            </a>
-                            <!-- left arrow in the carousel -->
-                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                            </a>
-                       <!--  </div> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br />
-        <div class="row">
-            <div class="col-md-4" ng-repeat="event in events">
-                <div class="thumbnail">
-                    <img src="{{event.img}}" alt="">
-                    <div class="caption">
-                        <h4 class="pull-right">{{event.users_att.length}} going</h4>
-                        <h4><a href="#">{{event.event_name}}</a>
-                        </h4>
-                        <p>{{event.description}}</p>
-                        <p>{{event.timeFromNow}}</p>
-                        <!-- this display in how many hours the event will take place<p>{{event.startInHour}}</p> -->
-                    </div>
-                    <div class="ratings">
-                        <!-- maybe display the category here -->
-                        <p class="pull-right" ><span ng-repeat="catergory in event.categories">{{catergory}} |</span></p>
-                        <!-- here is the star rating. maybe display how many ppl are going -->
-                      <!--   <p ng-repeat="range(event.categories.lenght)"> -->
-                            <span ng-repeat="i in event.users_att"class="glyphicon glyphicon-user"></span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!-- </div> -->
-        </div>
-
-                    <!-- keep this here  a tile with no boarder, a button etc. can be used to do About us/learn more section-->
-<!--                     <div class="col-sm-4 col-lg-4 col-md-4">
-                        <h4><a href="#">Like this template?</a>
-                        </h4>
-                        <p>If you like this template, then check out <a target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this tutorial</a> on how to build a working review system for your online store!</p>
-                        <a class="btn btn-primary" target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">View Tutorial</a>
-                    </div> -->
-
-                </div>
-
-            </div>
-        </div>
-
-        </div>
-
-    </div>
-    <!-- /.container -->
-
-    <div class="container">
-
-        <hr>
 
         <!-- Footer -->
-        <footer>
+        <hr>
+        <footer class="footer">
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Copyright &copy; Break the Ice 2016</p>
                 </div>
             </div>
         </footer>
 
-    </div>
+
     <!-- /.container -->
 
     <!-- jQuery -->
@@ -177,8 +104,14 @@
     <!-- angular -->
     <script type="text/javascript" src="app/bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="app/bower_components/angular-moment/angular-moment.min.js"></script>
+    <script type="text/javascript" src="app/bower_components/angular-route/angular-route.min.js"></script>
     <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/controllers/addEvent.Ctrl.js"></script>
+    <script type="text/javascript" src="app/controllers/Event.Ctrl.js"></script>
     <script type="text/javascript" src="app/controllers/landing.Ctrl.js"></script>
+    <script type="text/javascript" src="app/controllers/Signin.Ctrl.js"></script>
+    <script type="text/javascript" src="app/controllers/Signup.Ctrl.js"></script>
+    <script type="text/javascript" src="app/controllers/User.Ctrl.js"></script>
 
 </body>
 
