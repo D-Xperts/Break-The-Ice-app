@@ -1,12 +1,12 @@
 angular.module('break')
 .controller('signinCtrl', function($scope,$http){
 	$scope.signin = function(){
-		console.log($scope.alias, $scope.password);
+		console.log($scope.email, $scope.password);
 		// $http({
 		// 	method:"POST",
 		// 	url:"/endpoint",
 		// 	data:{
-		// 		username:$scope.username,
+		// 		email:$scope.email,
 		// 		password:$scope.password
 		// 	}
 		// }).then(function(resp){
