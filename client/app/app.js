@@ -25,5 +25,9 @@ angular.module('break',['angularMoment', 'ngRoute'])
       templateUrl: 'app/Views/UserView.html',
       controller: 'UserCtrl'
     })
+    .when('/logout', {
+        controller:'SignoutCtrl'
+      }
+    )
     .otherwise({redirectTo:'/'})
 })
