@@ -20,12 +20,11 @@ module.exports = {
 		user.interests = req.body.interests;
 		user.pic_url = req.body.pic_url;
 
-		user.setPassword(req.body.password)
-
+		user.setPassword(req.body.password);
 		user.save(function(err) {
 			if(err) {return next(err);}
 
-			return res.json({token: user.generateJWT});
+			return res.json({token: user.generateJWT()});
 		});
 	},
 
