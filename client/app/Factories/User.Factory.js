@@ -22,7 +22,7 @@ angular.module('break')
 		// 	    "interests":["array of strings"],
 		// 	    "pic_url":""
 		// 	}
-		$http({
+		return $http({
 			method:"POST",
 			url:"/api/v1/users/register",
 			data:user
