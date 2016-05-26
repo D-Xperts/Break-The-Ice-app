@@ -33,15 +33,14 @@ angular.module('break',['angularMoment', 'ngRoute'])
     })
     .otherwise({redirectTo:'/'})
 })
-.run(function($rootScope, $http, $window, $location){
+.run(function($rootScope, $http, $window, $location, UserAuth){
   var token = $window.localStorage.getItem('Break.The.Ice');
   if (token){
-    $rootScope.token = token;
-    $http.defaults.headers.common.Authorization = token;
+    UserAuth.setToken(token);
   }
   $rootScope.$on( "$routeChangeStart", function(event, next, current) {
       if ($rootScope.token == null) {
-        // no logged user
+        // if user is not logged in
         if ( next.templateUrl === "app/Views/signin.html") {
           $location.path("/signin");
         } else if ( next.templateUrl === "app/Views/signup.html") {
