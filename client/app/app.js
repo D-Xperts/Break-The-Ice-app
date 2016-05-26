@@ -15,25 +15,43 @@ angular.module('break',['angularMoment', 'ngRoute'])
     })
     .when('/event', {
       templateUrl: 'app/Views/EventView.html',
-      controller: 'EventCtrl'
+      controller: 'EventCtrl',
+      authenticate:true
     })
     .when('/addEvent', {
       templateUrl: 'app/Views/addEvent.html',
-      controller: 'addEventCtrl'
+      controller: 'addEventCtrl',
+      authenticate:true
     })
     .when('/user', {
       templateUrl: 'app/Views/UserView.html',
-      controller: 'UserCtrl'
+      controller: 'UserCtrl',
+      authenticate:true
     })
     .when('/logout', {
         controller:'SignoutCtrl'
     })
     .otherwise({redirectTo:'/'})
 })
-.run(function($rootScope, $http, $window){
+.run(function($rootScope, $http, $window, $location){
   var token = $window.localStorage.getItem('Break.The.Ice');
   if (token){
     $rootScope.token = token;
     $http.defaults.headers.common.Authorization = token;
   }
-})
+  $rootScope.$on( "$routeChangeStart", function(event, next, current) {
+      if ($rootScope.token == null) {
+        // no logged user
+        if ( next.templateUrl === "app/Views/signin.html") {
+          $location.path("/signin");
+        } else if ( next.templateUrl === "app/Views/signup.html") {
+          $location.path("/signup");
+        }else if ( next.templateUrl === "app/Views/landing.html") {
+          $location.path("/");
+        }else{
+          $location.path("/signin");
+        }
+        
+      }
+  });
+});
