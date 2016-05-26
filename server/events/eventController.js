@@ -16,22 +16,28 @@ module.exports = {
 
     newEvent.save(function (err, newEvent) {
       if(err) { return console.error(err); }
+      res.json(newEvent);
     });
   },
 
   //To do: Accept an object argument and filter based on it
-  getEvents: function() {
-    Event.find(function (err, events) {
+  getEvents: function(req, res, next) {
+    //if accept an object argument need to somehow grab it? or let frontend do it?
+    Event.find().exec(function (err, events) {
       if(err) { return console.error(err); }
-      return events;
+      res.json(events);
     })
   },
 
   //Unsure if syntax is correct, need to confirm
-  deleteEvent: function(event_id) {
+  deleteEvent: function(req, res, next) {
+    //wishful programming here
+    //http://expressjs.com/en/api.html#req
+    //need to grab the route params here
+    var event_id = req.params.event_id;
     Event.find({ _id: event_id}).remove(function(err) {
       if(err) {
-        return err;
+        return console.error(err);
       }
       return null;
     });

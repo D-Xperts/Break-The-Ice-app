@@ -13,6 +13,12 @@ module.exports = {
 		var user = new User;
 
 		user.email = req.body.email;
+		user.first_name = req.body.first_name;
+		user.last_name = req.body.last_name;
+		user.alias = req.body.alias;
+		user.hometown = req.body.hometown;
+		user.interests = req.body.interests;
+		user.pic_url = req.body.pic_url;
 
 		user.setPassword(req.body.password)
 
