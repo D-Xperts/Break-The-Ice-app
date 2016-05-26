@@ -1,7 +1,7 @@
 angular.module('break')
 .controller('signinCtrl', function($scope,$window, $location,UserAuth){
 	$scope.signin = function(){
-		console.log($scope.email, $scope.password);
+		// console.log($scope.email, $scope.password);
 		UserAuth.signin({
 			email:$scope.email,
 			password:$scope.password

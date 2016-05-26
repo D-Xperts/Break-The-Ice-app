@@ -27,7 +27,13 @@ angular.module('break',['angularMoment', 'ngRoute'])
     })
     .when('/logout', {
         controller:'SignoutCtrl'
-      }
-    )
+    })
     .otherwise({redirectTo:'/'})
+})
+.run(function($rootScope, $http, $window){
+  var token = $window.localStorage.getItem('Break.The.Ice');
+  if (token){
+    $rootScope.token = token;
+    $http.defaults.headers.common.Authorization = token;
+  }
 })
