@@ -1,10 +1,10 @@
 angular.module('break')
-.controller('signupCtrl', function($scope,$window,$location, UserAuth){
+.controller('signupCtrl', function($scope, UserAuth){
 	$scope.interests ={
 		Food:false,
 		Outdoors:false,
 		Music:false
-	}
+	};
 
 	$scope.signup = function(){
 		var interests = Object.keys($scope.interests).filter(function(interest){
@@ -22,8 +22,7 @@ angular.module('break')
 		};
 		UserAuth.register(data)
 		.then(function(token){
-			$window.localStorage.setItem('Break.The.Ice', token);
-			$location.path('/')
+			UserAuth.setToken(token)
 		})
 		.catch(function(err){
 			console.error(err)
