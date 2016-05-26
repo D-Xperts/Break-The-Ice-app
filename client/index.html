@@ -47,23 +47,19 @@
                     <li>
                         <a href="#/">Events</a>
                     </li>
-                    <li>
+                    <li ng-show="token">
                         <a href="#/addEvent">Add Event</a>
                     </li>
-                    <!-- Only show when signed in  -->
-                    <li>
+                    <li ng-show="token">
                         <a href="#/user">Profile</a>
                     </li>
-                    <!-- Only show when not signed in  -->
-                    <li>
+                    <li ng-hide="token">
                         <a href="#/signin">Signin</a>
                     </li>
-                    <!-- Only show when not signed in  -->
-                    <li>
+                    <li ng-hide="token">
                         <a href="#/signup">Signup</a>
                     </li>
-                    <!-- Only show when signed in  -->
-                    <li>
+                    <li ng-show="token">
                         <a href="#/logout">Logout</a>
                     </li>
                 </ul>
