@@ -1,5 +1,5 @@
 angular.module('break')
-.factory('UserAuth', function($http,$location,$window){
+.factory('UserAuth', function($http,$location,$window,$rootScope){
 	var signin = function(user){
 		//user {email:"", password:""}
 		return $http({
@@ -35,11 +35,19 @@ angular.module('break')
 		console.log('UserAuth signout');
 		$window.localStorage.removeItem('Break.The.Ice');
 		$location.path('/')
-	}
+	};
+	var setToken = function(token){
+		//use the token to notify $rootScope user had logged in
+		$rootScope.token = token;
+		$window.localStorage.setItem('Break.The.Ice', token);
+		$http.defaults.headers.common.Authorization = token;
+		$location.path('/');
+	};
 	return {
 		signin:signin,
 		signout:signout,
-		register:register
+		register:register,
+		setToken:setToken
 	}
 
 })
