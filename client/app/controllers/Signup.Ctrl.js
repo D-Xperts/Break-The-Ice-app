@@ -1,5 +1,5 @@
 angular.module('break')
-.controller('signupCtrl', function($scope,$http){
+.controller('signupCtrl', function($scope,$window,$location, UserAuth){
 	$scope.interests ={
 		Food:false,
 		Outdoors:false,
@@ -7,7 +7,6 @@ angular.module('break')
 	}
 
 	$scope.signup = function(){
-		// var interests = [];
 		var interests = Object.keys($scope.interests).filter(function(interest){
 			return $scope.interests[interest]
 		});
@@ -21,16 +20,13 @@ angular.module('break')
 			pic_url:$scope.pic_url,
 			interests:interests
 		};
-		// console.log(data);
-		// $http({
-		// 	method:"POST",
-		// 	url:"/endpoint",
-		// 	data:data
-		// }).then(function(resp){
-		// 	//success login function
-		// 	//redirect to landing page
-		// }, function(resp){
-		// 	// login fail funciton
-		// })
+		UserAuth.register(data)
+		.then(function(token){
+			$window.localStorage.setItem('Break.The.Ice', token);
+			$location.path('/')
+		})
+		.catch(function(err){
+			console.error(err)
+		})
 	}
 });
