@@ -24,20 +24,20 @@
                         <div class="carousel-inner">
                             <!-- each div is for each pic in the carousel -->
                             <div class="item active">
-                                <img class="slide-image" src="{{featured[0].img}}" alt="">
+                                <img class="slide-image" src="{{featured[0].pic_url}}" alt="">
                             </div>
 
                             <div class="item" ng-repeat="featuredEvent in featured.slice(1)">
-                                <img class="slide-image" src="{{featuredEvent.img}}" alt="">
+                                <img class="slide-image" src="{{featuredEvent.pic_url}}" alt="">
                             </div>
                         </div>
                     
                         <!-- left arrow in the carousel -->
-                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                        <a class="left carousel-control" href="#" data-slide="prev">
                             <span class="glyphicon glyphicon-chevron-left"></span>
                         </a>
                         <!-- left arrow in the carousel -->
-                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                        <a class="right carousel-control" href="#" data-slide="next">
                             <span class="glyphicon glyphicon-chevron-right"></span>
                         </a>
                    <!--  </div> -->
@@ -49,7 +49,7 @@
     <div class="row">
         <div class="col-md-4" ng-repeat="event in events" ng-click="goToEvent(event._id)">
             <div class="thumbnail">
-                <img src="{{event.img}}" alt="">
+                <img src="{{event.pic_url}}" alt="">
                 <div class="caption">
                     <h4 class="pull-right">{{event.users_att.length}} going</h4>
                     <h4><a href="#">{{event.event_name}}</a>
