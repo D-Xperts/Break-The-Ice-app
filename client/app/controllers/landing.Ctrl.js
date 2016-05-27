@@ -28,14 +28,32 @@ angular.module('break')
                 return a.startInHour - b.startInHour
             })
             $scope.featured = $scope.orderedEvents.slice(0,3);
-            console.log('line 31', $scope.events)
+
+            $scope.focusedEvent = $scope.featured[0];
+            $scope.pic = $scope.focusedEvent.pic_url;
 
         },
         function(err){
             //fail
             console.error(err)
         }
-    );
+    )
+    .then(function(){
+        //set to change image every 5 second
+        setInterval(function(){
+            var index = $scope.featured.indexOf($scope.focusedEvent);
+            if (index === $scope.featured.length-1){
+                $scope.focusedEvent = $scope.featured[0];
+                $scope.pic = $scope.focusedEvent.pic_url;
+            }else{
+                $scope.focusedEvent = $scope.featured[index+1];
+                $scope.pic = $scope.focusedEvent.pic_url;
+            }
+            $scope.$apply();
+        },5000)
+
+        
+    });
 
     $scope.goToEvent = function(_id){
         $location.path("/event/"+_id)

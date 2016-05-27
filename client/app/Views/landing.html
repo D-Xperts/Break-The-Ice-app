@@ -10,39 +10,7 @@
             </div>
         </div>
         <div class="col-md-9">
-
-            <div class="row carousel-holder">
-
-<!--                     <div class="col-md-12 slider"> -->
-                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                        <!-- the three dots of the bottom of the carousel -->
-                        <ol class="carousel-indicators">
-                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            <!-- each div is for each pic in the carousel -->
-                            <div class="item active">
-                                <img class="slide-image" src="{{featured[0].pic_url}}" alt="">
-                            </div>
-
-                            <div class="item" ng-repeat="featuredEvent in featured.slice(1)">
-                                <img class="slide-image" src="{{featuredEvent.pic_url}}" alt="">
-                            </div>
-                        </div>
-                    
-                        <!-- left arrow in the carousel -->
-                        <a class="left carousel-control" href="#" data-slide="prev">
-                            <span class="glyphicon glyphicon-chevron-left"></span>
-                        </a>
-                        <!-- left arrow in the carousel -->
-                        <a class="right carousel-control" href="#" data-slide="next">
-                            <span class="glyphicon glyphicon-chevron-right"></span>
-                        </a>
-                   <!--  </div> -->
-                </div>
-            </div>
+            <img ng-src="{{pic}}">
         </div>
     </div>
     <br />
