@@ -1,5 +1,5 @@
 angular.module('break')
-.controller('addEventCtrl', function($scope,moment,Event){
+.controller('addEventCtrl', function($scope,$location,moment,Event){
 	$scope.newEvent = {};
 	$scope.eventCategoriesObj = {
 		Foods:false,
@@ -19,7 +19,6 @@ angular.module('break')
 	});
 	console.log($scope.minDatetimeLocal);
 	$scope.addEvent = function () {
-		console.log("getting fired up")
 		$scope.categories = Object.keys($scope.eventCategoriesObj).filter(function(key){
 			return $scope.eventCategoriesObj[key]
 		});
@@ -33,9 +32,13 @@ angular.module('break')
 			endTime:$scope.end_time.getTime(),
 			categories: $scope.categories
 		};
-		console.log($scope.newEvent);
-		Event.addEvent($scope.newEvent).then(
-			function(response){console.log(response.data)})
-		.catch(function(err){console.log(err)})
+		Event.addEvent($scope.newEvent)
+		.then(function(response){
+			console.log(response.data)
+			$location.path('/')
+		})
+		.catch(function(err){
+			console.log(err)
+		})
 	}
 })
