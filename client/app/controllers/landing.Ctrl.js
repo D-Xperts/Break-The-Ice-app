@@ -6,7 +6,7 @@ angular.module('break')
     $scope.categories = [];
     $scope.events = [
     {
-        _id: "57484f8327b8d7460f0b3bb5",
+        _id: "57486d020933899c1a268fdf",
         title : "X Games Austin",
         img : 'http://cdn.bmx.transworld.net/wp-content/blogs.dir/444/files/2016/02/2006-x-games12-dirt.jpg', 
         description : "A festival that highlights the intersection of sports and lifestyle that exists in action sports", 
@@ -34,7 +34,6 @@ angular.module('break')
     })
     $scope.featured = $scope.orderedEvents.slice(0,3);
     $scope.goToEvent = function(_id){
-        console.log(_id);
         $location.path("/event/"+_id)
     }
 })
