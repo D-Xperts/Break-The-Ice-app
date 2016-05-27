@@ -5,7 +5,7 @@ angular.module('break')
   //the following is a mock up for the merged data
   //that will be used and populated by the controller
   $scope.event = {
-
+    _id: "57484f8327b8d7460f0b3bb5",
     title: "X-games Austin",
     img: 'http://cdn.bmx.transworld.net/wp-content/blogs.dir/444/files/2016/02/2006-x-games12-dirt.jpg',
     description: "A festival that highlights the intersection of sports and lifestyle that exists in action sports",
