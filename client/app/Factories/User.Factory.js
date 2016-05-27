@@ -32,9 +32,11 @@ angular.module('break')
 		})
 	};
 	var signout = function () {
-		console.log('UserAuth signout');
+		delete $http.defaults.headers.common.Authorization;
 		$window.localStorage.removeItem('Break.The.Ice');
 		$location.path('/')
+		//force page reload
+		$window.location.reload();
 	};
 	var setToken = function(token){
 		//use the token to notify $rootScope user had logged in
