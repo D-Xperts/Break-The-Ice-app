@@ -28,15 +28,15 @@ angular.module('break',['angularMoment', 'ngRoute'])
       controller: 'UserCtrl',
       authenticate:true
     })
-    .when('/logout', {
-        controller:'SignoutCtrl'
-    })
     .otherwise({redirectTo:'/'})
 })
 .run(function($rootScope, $http, $window, $location, UserAuth){
   var token = $window.localStorage.getItem('Break.The.Ice');
   if (token){
     UserAuth.setToken(token);
+  }
+  $rootScope.signout = function(){
+    UserAuth.signout();
   }
   $rootScope.$on( "$routeChangeStart", function(event, next, current) {
       if ($rootScope.token == null) {
