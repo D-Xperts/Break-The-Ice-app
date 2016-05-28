@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
-var Event = mongoose.model('Event');
+var Event = mongoose.model('Event');  //need Event model for joinEvent
 var passport = require('passport');
 var jwt = require('express-jwt');
 
@@ -28,17 +28,17 @@ module.exports = {
 		});
 	},
 
-	getUser: function(req, res, next, id) {
-		var query = User.findById(id);
+	// getUser: function(req, res, next, id) {
+	// 	var query = User.findById(id);
 
-		query.exec(function(err, user) {
-			if (err) { return next(err); }
-			if (!post) { return next(new Error("can't find user")); }
+	// 	query.exec(function(err, user) {
+	// 		if (err) { return next(err); }
+	// 		if (!post) { return next(new Error("can't find user")); }
 
-			req.user = user;
-			return next();
-		})
-	},
+	// 		req.user = user;
+	// 		return next();
+	// 	})
+	// },
 
 	deleteUser: function(req, res, id) {
 		var query = User.findById(id);
