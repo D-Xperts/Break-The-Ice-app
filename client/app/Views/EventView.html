@@ -5,8 +5,8 @@
     <div class="row">
 
         <div class="col-md-3">
-            <p class="lead event-pic">{{event.title}} {{event.owners[0]}}</p>
-            <img class ="event-pic" src='{{event.img}}'></img>
+            <p class="lead event-pic">{{event.event_name}} {{event.owners[0]}}</p>
+            <img class ="event-pic" src='{{event.pic_url}}'></img>
             <ul>
                 <li ng-repeat='user in event.users_att'>{{user}}</li>
             </ul>

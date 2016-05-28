@@ -13,7 +13,7 @@ angular.module('break',['angularMoment', 'ngRoute'])
       templateUrl: 'app/Views/signup.html',
       controller: 'signupCtrl'
     })
-    .when('/event', {
+    .when('/event/:event_id', {
       templateUrl: 'app/Views/EventView.html',
       controller: 'EventCtrl',
       authenticate:true
