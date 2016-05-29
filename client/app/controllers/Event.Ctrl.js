@@ -33,8 +33,6 @@ angular.module('break')
   //   }
   // };
 
-  //the following is a way to grab the event data base on event id in the address
-  //console.log('$routeParams is ', $routeParams);
   $scope.event = null;
   $http({
     method:"GET",
@@ -42,35 +40,36 @@ angular.module('break')
   })
   .then(
     function(resp){
-    //sucess function
-    $scope.event = resp.data.filter(function(event){
-      return event._id === $routeParams.event_id;
-    });
-    $scope.event = $scope.event[0];
-    console.log($scope.event);
-    $scope.event.timeFromNow = moment($scope.event.start_time).fromNow();
-    $scope.event.startInHour = parseInt(moment($scope.event.start_time).diff(Date.now(), 'hours'));
-    $scope.event.displayTime = moment($scope.event.start_time).format('MMMM Do YYYY, h:mm:ss a');
-  },
+    //success function
+    //filter the target event
+      $scope.event = resp.data.filter(function(event){
+        return event._id === $routeParams.event_id;
+      });
+      $scope.event = $scope.event[0];
+      //set the timestamps for display friendly format
+      $scope.event.timeFromNow = moment($scope.event.start_time).fromNow();
+      $scope.event.startInHour = parseInt(moment($scope.event.start_time).diff(Date.now(), 'hours'));
+      $scope.event.displayTime = moment($scope.event.start_time).format('MMMM Do YYYY, h:mm:ss a');
+    },
     function(err){
       //fail function
       console.error(err)
     });
 
   //Joining event - call the api to join the event User Model -> joinEvent(user_id, event_id)
-  $scope.joinEvent = function(){
-    $http({
-      method:"POST",
-      url:'/endpoint',
-      data:{
-        authToken: "TBD"
-      }
-    }).then(function(resp){
-      //success function
-    }, function(resp){
-      //fail function
-    })
-  }
+  // $scope.joinEvent = function(){
+  //   $http({
+  //     method:"POST",
+  //     url:'/endpoint',
+  //     data:{
+  //       authToken: "TBD"
+  //     }
+  //   }).then(function(resp){
+  //     //success function
+  //   }, function(resp){
+  //     //fail function
+  //   })
+  // }
 
 
 })

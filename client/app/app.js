@@ -1,5 +1,6 @@
 angular.module('break',['angularMoment', 'ngRoute'])
 .config(function($routeProvider) {
+  //set client side routing
   $routeProvider
     .when('/', {
       templateUrl: 'app/Views/landing.html',
@@ -28,9 +29,12 @@ angular.module('break',['angularMoment', 'ngRoute'])
       controller: 'UserCtrl',
       authenticate:true
     })
-    .otherwise({redirectTo:'/'})
+    .otherwise({
+      redirectTo:'/'
+    })
 })
 .run(function($rootScope, $http, $window, $location, UserAuth){
+  //$rootScope for signin/signout control
   var token = $window.localStorage.getItem('Break.The.Ice');
   if (token){
     UserAuth.setToken(token);
@@ -39,7 +43,7 @@ angular.module('break',['angularMoment', 'ngRoute'])
     UserAuth.signout();
   }
   $rootScope.$on( "$routeChangeStart", function(event, next, current) {
-      if ($rootScope.token == null) {
+      if (!$rootScope.token) {
         // if user is not logged in
         if ( next.templateUrl === "app/Views/signin.html") {
           $location.path("/signin");
