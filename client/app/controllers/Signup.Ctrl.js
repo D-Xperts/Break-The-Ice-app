@@ -7,6 +7,7 @@ angular.module('break')
 	};
 
 	$scope.signup = function(){
+		// construct interests array
 		var interests = Object.keys($scope.interests).filter(function(interest){
 			return $scope.interests[interest]
 		});
