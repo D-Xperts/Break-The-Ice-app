@@ -1,6 +1,8 @@
 var Event = require('./eventModel.js');
 
 module.exports = {
+
+  //Accepts an event info in the body and saves to the database
   createEvent: function(req, res, next) {
     var newEvent = new Event({
       event_name : req.body.name,
@@ -20,7 +22,9 @@ module.exports = {
     });
   },
 
-  //To do: Accept an object argument and filter based on it
+  //Returns event info
+  //If an eventID query is included, just returns that event
+  //If a limit query is included, returns that many events by soonest to occur 
   getEvents: function(req, res, next) {
     //If looking for a specific event
     if(req.query.eventId !== undefined) {

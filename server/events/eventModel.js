@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 
+//See '../Model Specs.cd' for details on database schema
 var EventSchema = new mongoose.Schema({
   event_name: {
     type: String,
