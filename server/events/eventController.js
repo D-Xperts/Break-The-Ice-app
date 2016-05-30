@@ -22,11 +22,36 @@ module.exports = {
 
   //To do: Accept an object argument and filter based on it
   getEvents: function(req, res, next) {
-    //if accept an object argument need to somehow grab it? or let frontend do it?
-    Event.find().exec(function (err, events) {
-      if(err) { return console.error(err); }
-      res.json(events);
-    })
+    //If looking for a specific event
+    if(req.query.eventId !== undefined) {
+      Event.findById(req.query.eventId).exec(function (err, events) {
+        if(err) { return console.error(err); }
+        res.json(events);
+      })
+    }
+
+    //If looking for a limited number of events, returns the soonest to occur
+    if(req.query.limit !== undefined) {
+      Event.find().exec(function (err, events) {
+        if(err) { return console.error(err); }
+        
+        var returnVal;
+        returnVal = events.sort(function(a, b) {
+            return b.start_time - a.start_time;
+          })
+          .slice(0, req.query.limit)
+
+        res.json(returnVal);
+      })
+    }
+
+    //If not queries are included, return all events
+    else {
+      Event.find().exec(function (err, events) {
+        if(err) { return console.error(err); }
+        res.json(events);
+      })
+    }
   },
 
   //Unsure if syntax is correct, need to confirm
