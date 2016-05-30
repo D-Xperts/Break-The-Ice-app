@@ -9,7 +9,7 @@ var passport = require('passport');
 var Strategy = require('passport-local').Strategy;
 
 
-mongoose.connect("mongodb://localhost/breaktheice");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/breaktheice");
 
 require('./server/users/userModel');
 require('./server/events/eventModel');
