@@ -46,10 +46,12 @@ module.exports = {
     }
 
     //If not queries are included, return all events
-    Event.find().exec(function (err, events) {
-      if(err) { return console.error(err); }
-      res.json(events);
-    })
+    else {
+      Event.find().exec(function (err, events) {
+        if(err) { return console.error(err); }
+        res.json(events);
+      })
+    }
   },
 
   //Unsure if syntax is correct, need to confirm
