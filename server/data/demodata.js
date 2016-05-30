@@ -8,7 +8,7 @@ demoEvents.forEach(function(event) {
   eventController.createEvent({body: event});
 });
 
-//Function loads a set of hardcoded demo data
+//Function returns an array of hardcoded demo data
 var loadData = function() {
   var dataArr = [];
 
