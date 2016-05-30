@@ -19,6 +19,7 @@ module.exports = {
 		user.hometown = req.body.hometown;
 		user.interests = req.body.interests;
 		user.pic_url = req.body.pic_url;
+		user.events = [];
 
 		user.setPassword(req.body.password);
 		user.save(function(err) {
@@ -33,7 +34,7 @@ module.exports = {
 
 		query.exec(function(err, user) {
 			if (err) { return next(err); }
-			if (!post) { return next(new Error("can't find user")); }
+			if (!user) { return next(new Error("can't find user")); }
 
 			req.user = user;
 			return next();
@@ -62,8 +63,20 @@ module.exports = {
 		  })(req, res, next);
 	},
 
-	// joinEvent: function(req, res, next, id) {
-	// 	var queryUser = User.findById(id);
-	// 	var queryEvent = Event.findById(id);
-	// }
+	viewProfile: function(req, res, next) {
+		User.find(function(err, users) {
+			if (err) { next(err) };
+
+			res.json(users);
+		});
+	},
+
+	joinEvent: function(req, res, next, id) {
+		var queryUser = User.findById(id);
+		var queryEvent = Event.findById(id);
+
+		queryUser.events.push(queryEvent);
+
+		if (err) { next(err) };
+	}
 };
