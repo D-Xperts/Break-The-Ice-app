@@ -29,13 +29,13 @@ var EventSchema = new mongoose.Schema({
   users_att: {
     type: [{
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'users'
+      ref: "users"
     }],
   },
   owners: {
     type: [{
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'users'
+      ref: "users"
     }],
     required: false,
   },

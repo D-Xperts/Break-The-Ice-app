@@ -24,7 +24,7 @@ module.exports = {
 
   //Returns event info
   //If an eventID query is included, just returns that event
-  //If a limit query is included, returns that many events by soonest to occur 
+  //If a limit query is included, returns that many events by soonest to occur
   getEvents: function(req, res, next) {
     //If looking for a specific event
     if(req.query.eventId !== undefined) {
@@ -58,12 +58,13 @@ module.exports = {
     }
   },
 
-  //Unsure if syntax is correct, need to confirm
+  //Accepts an event_id query and deletes that event
   deleteEvent: function(req, res, next) {
-    //wishful programming here
-    //http://expressjs.com/en/api.html#req
-    //need to grab the route params here
-    var event_id = req.params.event_id;
+    var event_id = req.query.eventId;
+    if(event_id === undefined) {
+      return console.err("No eventId provided")
+    }
+
     Event.find({ _id: event_id}).remove(function(err) {
       if(err) {
         return console.error(err);
