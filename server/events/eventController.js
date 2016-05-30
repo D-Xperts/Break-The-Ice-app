@@ -46,7 +46,7 @@ module.exports = {
     }
 
     //If not queries are included, return all events
-    else {
+    if (req.query.eventId === undefined && req.query.limit === undefined) {
       Event.find().exec(function (err, events) {
         if(err) { return console.error(err); }
         res.json(events);
