@@ -18,7 +18,7 @@ bower install
 ```
 After installing all the dependencies, run the sever by running
 ```javascript
-nodemon
+npm start
 ```
 
 
