@@ -24,15 +24,6 @@ angular.module('break')
                     }
                 });
             });
-            $scope.orderedEvents = $scope.events.slice();
-            $scope.orderedEvents = $scope.orderedEvents.sort(function(a,b){
-                return a.startInHour - b.startInHour
-            })
-            $scope.featured = $scope.orderedEvents.slice(0,3);
-
-            $scope.focusedEvent = $scope.featured[0];
-            $scope.pic = $scope.focusedEvent.pic_url;
-
         },
         function(err){
             //fail
