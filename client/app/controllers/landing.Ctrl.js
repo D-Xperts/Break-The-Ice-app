@@ -6,6 +6,7 @@ angular.module('break')
     $scope.categories = [];
 
     $scope.events = null;
+    $scope.featured = null;
     $http({
         method:"GET",
         url:"/api/v1/events/"
@@ -23,21 +24,23 @@ angular.module('break')
                     }
                 });
             });
-            $scope.orderedEvents = $scope.events.slice();
-            $scope.orderedEvents = $scope.orderedEvents.sort(function(a,b){
-                return a.startInHour - b.startInHour
-            })
-            $scope.featured = $scope.orderedEvents.slice(0,3);
-
-            $scope.focusedEvent = $scope.featured[0];
-            $scope.pic = $scope.focusedEvent.pic_url;
-
         },
         function(err){
             //fail
             console.error(err)
         }
     )
+    .then(function(){
+        return $http({
+        method:"GET",
+        url:"/api/v1/events/?limit=3"
+        })
+    })
+    .then(function(resp){
+        $scope.featured = resp.data;
+        $scope.focusedEvent = $scope.featured[0];
+        $scope.pic = $scope.focusedEvent.pic_url;
+    })
     .then(function(){
         //set to change image every 5 second
         setInterval(function(){
