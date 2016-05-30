@@ -36,16 +36,12 @@ angular.module('break')
   $scope.event = null;
   $http({
     method:"GET",
-    url:"/api/v1/events/"
+    url:"/api/v1/events/?eventId="+$routeParams.event_id
   })
   .then(
     function(resp){
     //success function
-    //filter the target event
-      $scope.event = resp.data.filter(function(event){
-        return event._id === $routeParams.event_id;
-      });
-      $scope.event = $scope.event[0];
+      $scope.event = resp.data;
       //set the timestamps for display friendly format
       $scope.event.timeFromNow = moment($scope.event.start_time).fromNow();
       $scope.event.startInHour = parseInt(moment($scope.event.start_time).diff(Date.now(), 'hours'));
