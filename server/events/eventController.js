@@ -23,15 +23,15 @@ module.exports = {
   //To do: Accept an object argument and filter based on it
   getEvents: function(req, res, next) {
     //If looking for a specific event
-    if(request.query.eventId !== undefined) {
-      Event.findById(request.query.eventId).exec(function (err, events) {
+    if(req.query.eventId !== undefined) {
+      Event.findById(req.query.eventId).exec(function (err, events) {
         if(err) { return console.error(err); }
         res.json(events);
       })
     }
 
     //If looking for a limited number of events, returns the soonest to occur
-    if(request.query.limit !== undefined) {
+    if(req.query.limit !== undefined) {
       Event.find().exec(function (err, events) {
         if(err) { return console.error(err); }
         
@@ -39,7 +39,7 @@ module.exports = {
         returnVal = events.sort(function(a, b) {
             return b.start_time - a.start_time;
           })
-          .slice(0, request.query.limit)
+          .slice(0, req.query.limit)
 
         res.json(returnVal);
       })
