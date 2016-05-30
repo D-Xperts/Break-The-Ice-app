@@ -16,13 +16,13 @@ OBJECTS
 
 	Use literal syntax
 
-	var a = {}
+		var a = {};
 	  
 	Use reasable synonyms
 
-	var a = {
-		type: 'letter'	
-	} 
+		var a = {
+			type: 'letter'	
+		}; 
 
 	Do not use object method shorthad
 

@@ -11,7 +11,7 @@ angular.module('break')
 
 	//auto set/prefill end time
 	$scope.$watch('start_time', function(newValue, oldValue) {
-  		$scope.end_time = $scope.start_time
+		$scope.end_time = $scope.start_time
 	});
 
 	$scope.addEvent = function () {

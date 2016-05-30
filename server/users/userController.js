@@ -10,7 +10,7 @@ module.exports = {
 			return res.status(400).json({message: "Please fill out all fields"});
 		}
 
-		var user = new User;
+		var user = new User();
 
 		user.email = req.body.email;
 		user.first_name = req.body.first_name;
