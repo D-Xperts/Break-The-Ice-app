@@ -1,6 +1,8 @@
 var Event = require('./eventModel.js');
 
 module.exports = {
+
+  //Accepts an event info in the body and saves to the database
   createEvent: function(req, res, next) {
     var newEvent = new Event({
       event_name : req.body.name,
@@ -20,7 +22,9 @@ module.exports = {
     });
   },
 
-  //To do: Accept an object argument and filter based on it
+  //Returns event info
+  //If an eventID query is included, just returns that event
+  //If a limit query is included, returns that many events by soonest to occur
   getEvents: function(req, res, next) {
     //If looking for a specific event
     if(req.query.eventId !== undefined) {
@@ -54,12 +58,13 @@ module.exports = {
     }
   },
 
-  //Unsure if syntax is correct, need to confirm
+  //Accepts an event_id query and deletes that event
   deleteEvent: function(req, res, next) {
-    //wishful programming here
-    //http://expressjs.com/en/api.html#req
-    //need to grab the route params here
-    var event_id = req.params.event_id;
+    var event_id = req.query.eventId;
+    if(event_id === undefined) {
+      return console.err("No eventId provided")
+    }
+
     Event.find({ _id: event_id}).remove(function(err) {
       if(err) {
         return console.error(err);

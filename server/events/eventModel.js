@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 
+//See '../Model Specs.cd' for details on database schema
 var EventSchema = new mongoose.Schema({
   event_name: {
     type: String,
@@ -28,13 +29,13 @@ var EventSchema = new mongoose.Schema({
   users_att: {
     type: [{
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'users'
+      ref: "users"
     }],
   },
   owners: {
     type: [{
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'users'
+      ref: "users"
     }],
     required: false,
   },
