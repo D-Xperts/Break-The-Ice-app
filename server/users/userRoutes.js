@@ -16,6 +16,6 @@ router.get('users/:user', User.viewProfile);
 
 router.delete('/users/:user', auth, User.deleteUser)
 
-router.post('/users/:user/events', auth, User.joinEvent)
+router.post('/users/:user/events/:event', auth, User.joinEvent)
 
 module.exports = router;
