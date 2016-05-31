@@ -3,6 +3,9 @@
 	max-height: 100%;
 }
 
+.featured-pic {
+	height: 400px
+}
 
 .user-catagory {
 	float: left;

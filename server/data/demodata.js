@@ -28,14 +28,14 @@ var loadData = function() {
   dataArr.push({
     //_id: "",
     name: "Shakespeare in Zilker Park",
-    location: "Zilker Hillside Theater, 2201 Barton Springs Road",
+    location: "Zilker Hillside Theater - 2201 Barton Springs Road",
     startTime: new Date("2016 06 02 20:00:00"),
     endTime: new Date("2016 06 03 22:00:00"),
     picUrl: 'https://s-media-cache-ak0.pinimg.com/736x/d2/97/90/d29790e192c7d74b1b7cd95b003b75c8.jpg',
     categories: ["Outdoors", "Arts"],
     usersAtt: ['Ryan', 'James', 'Adam'],
     owners: ['Sin'],
-    description: "The military-themed rendition of “Macbeth” continues all weekend as part of the annual Shakespeare in Zilker Park tradition. austinshakespeare.org.",
+    description: "The military-themed rendition of \"Macbeth\" continues all weekend as part of the annual Shakespeare in Zilker Park tradition. austinshakespeare.org.",
   });
 
   dataArr.push({
@@ -82,7 +82,7 @@ var loadData = function() {
     name: "Slipknot with Marilyn Manson",
     location: "Austin360 Amphitheater - 9201 Circuit of the Americas Blvd Del Valle, TX 78617",
     startTime: new Date("2016 06 24 18:30:00"),
-    endTime: new Date("2016 06 06 23:00:00"),
+    endTime: new Date("2016 06 24 23:00:00"),
     picUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/ba/Marilyn_Manson_-_Rock_am_Ring_2015-8751.jpg',
     categories: ["Arts"],
     usersAtt: ['Ryan'],
