@@ -26,6 +26,8 @@ module.exports = {
   //If an eventID query is included, just returns that event
   //If a limit query is included, returns that many events by soonest to occur
   getEvents: function(req, res, next) {
+    var returnVal;
+
     //If looking for a specific event
     if(req.query.eventId !== undefined) {
       Event.findById(req.query.eventId).populate('users_att').exec(function (err, events) {
@@ -39,7 +41,6 @@ module.exports = {
       Event.find().exec(function (err, events) {
         if(err) { return console.error(err); }
         
-        var returnVal;
         returnVal = events.sort(function(a, b) {
             return b.start_time - a.start_time;
           })
@@ -53,7 +54,11 @@ module.exports = {
     if (req.query.eventId === undefined && req.query.limit === undefined) {
       Event.find().exec(function (err, events) {
         if(err) { return console.error(err); }
-        res.json(events);
+
+        returnVal = events.sort(function(a, b) {
+            return b.start_time - a.start_time;
+          })
+        res.json(returnVal);
       })
     }
   },
