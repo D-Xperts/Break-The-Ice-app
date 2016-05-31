@@ -8,7 +8,7 @@
             <p class="lead event-pic">{{event.event_name}} {{event.owners[0]}}</p>
             <img class ="event-pic" src='{{event.pic_url}}'></img>
             <ul>
-                <li ng-repeat='user in event.users_att'>{{user}}</li>
+                <li ng-repeat='user in event.users_att'>{{user.alias}}</li>
             </ul>
             <div class="clearfix">
                 <button type="button" class="btn btn-primary pull-right" ng-click="joinEvent()">Join!</button>
