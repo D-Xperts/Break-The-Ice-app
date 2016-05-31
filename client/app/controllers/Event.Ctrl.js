@@ -53,19 +53,17 @@ angular.module('break')
     });
 
   //Joining event - call the api to join the event User Model -> joinEvent(user_id, event_id)
-  // $scope.joinEvent = function(){
-  //   $http({
-  //     method:"POST",
-  //     url:'/endpoint',
-  //     data:{
-  //       authToken: "TBD"
-  //     }
-  //   }).then(function(resp){
-  //     //success function
-  //   }, function(resp){
-  //     //fail function
-  //   })
-  // }
+  $scope.joinEvent = function(){
+    $http({
+      method:"POST",
+      url:'/api/v1/users/join/'+$routeParams.event_id
+    }).then(function(resp){
+      console.log(resp);
+      //success function
+    }, function(resp){
+      //fail function
+    })
+  }
 
 
 })

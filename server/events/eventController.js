@@ -28,7 +28,7 @@ module.exports = {
   getEvents: function(req, res, next) {
     //If looking for a specific event
     if(req.query.eventId !== undefined) {
-      Event.findById(req.query.eventId).exec(function (err, events) {
+      Event.findById(req.query.eventId).populate('users_att').exec(function (err, events) {
         if(err) { return console.error(err); }
         res.json(events);
       })

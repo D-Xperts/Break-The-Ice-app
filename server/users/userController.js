@@ -71,12 +71,14 @@ module.exports = {
 		});
 	},
 
-	joinEvent: function(req, res, next, id) {
-		var queryUser = User.findById(id);
-		var queryEvent = Event.findById(id);
-
-		queryUser.events.push(queryEvent);
-
-		if (err) { next(err) };
+	joinEvent: function(req, res, next) {
+		var user_id = req.payload._id;
+		var event_id = req.params.event_id;
+		Event.findOne({_id:event_id},  function(err, ev){
+			if (err){return next(err)}
+			ev.users_att.push(user_id);
+			ev.save();
+			res.send(200);
+		});
 	}
 };

@@ -28,6 +28,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'client')));
 app.use(passport.initialize());
+app.use(function(req, res, next){
+	req.payload = req.headers.authorization;
+	next();
+})
 
 app.use('/api/v1/events', events);
 app.use('/api/v1/users', users);
